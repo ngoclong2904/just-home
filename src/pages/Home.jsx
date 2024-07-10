@@ -1,6 +1,6 @@
 import { ArrowRightOutlined, CaretDownOutlined } from "@ant-design/icons"
 import { Button, Dropdown, Menu } from "antd"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import backgroundimg from "../assets/poster/home.png"
 import Card from "../components/Card/Card"
 import Typical from "../components/Typical/Typical"
@@ -13,6 +13,20 @@ import { SiLinkedin, SiLinkerd } from "react-icons/si"
 
 const Home = () => {
 	const [selected, setSelected] = useState("All Properties")
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const res = await fetch("https://realestateproject.azurewebsites.net/api/Properties")
+				const data = await res.json()
+				console.log(data)
+			} catch (error) {
+				console.error("Error fetching data: ", error)
+			}
+		}
+
+		fetchData()
+	}, [])
 
 	const menuItems = ["All Properties", "Villa", "Apartments", "Office"]
 	const statusMenu = (
@@ -133,7 +147,7 @@ const Home = () => {
 							<Typical
 								image={data.image}
 								address={data.address}
-								title={data.propertyName}
+								title={data.view}
 								beds={data.bedRoom}
 								baths={data.bathRoom}
 								size={data.sizeArea}

@@ -36,7 +36,7 @@ const App = () => {
 				<Route path='order' element={<Order />} />
 				<Route path='receipt-card' element={<ReceiptCard />} />
 				<Route element={<Adminlayout />}>
-					<Route path='admin-dasboard' element={<Dashboard />} />
+					<Route path='admin-dashboard' element={<Dashboard />} />
 					<Route path='admin-projects' element={<Projects />} />
 					<Route path='admin-projects/list/:id' element={<ListProduct />} />
 					<Route path='admin-projects/:id' element={<DetailProject />} />
