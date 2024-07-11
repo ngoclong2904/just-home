@@ -9,10 +9,6 @@ import typical3 from "../assets/typical/typical3.png"
 import typical4 from "../assets/typical/typical4.png"
 import typical5 from "../assets/typical/typical5.png"
 import typical6 from "../assets/typical/typical6.png"
-import mainImage from "../assets/detail/main.jpg"
-import smallImage1 from "../assets/detail/child1.jpg"
-import smallImage2 from "../assets/detail/child2.jpg"
-import smallImage3 from "../assets/detail/chid3.jpg"
 
 export const Cards = [
 	{
@@ -138,27 +134,6 @@ export const TypicalData = [
 	},
 ]
 
-export const detailData = {
-	title: "Peninsula Đà Nẵng",
-	address: "Phường Nại Hiên Đông, Quận Sơn Trà, Đà Nẵng.",
-	mainImage: mainImage,
-	smallImages: [smallImage1, smallImage2, smallImage3],
-	statusBadges: { id: 1, title: ["Sắp mở bán", "Đang nhận booking"] },
-	// statusBadges: { id: 2, title: ["Đang mở bán"] },
-	// statusBadges: { id: 3, title: ["Đã bàn giao"] },
-	stats: {
-		units: 941,
-		area: "7.172",
-	},
-	menuItems: [
-		{ title: "Bán & Cho thuê", subtitle: "Bán & Cho thuê" },
-		{ title: "Tổng quan", subtitle: "Tổng quan" },
-		{ title: "Vị trí", subtitle: "Vị trí" },
-		{ title: "Ước tính khoản vay", subtitle: "Ước tính khoản vay" },
-		{ title: "Câu hỏi thường gặp", subtitle: "Câu hỏi thường gặp" },
-		{ title: "Dự án liên quan", subtitle: "Dự án liên quan" },
-	],
-}
 export const receiptData = {
 	amount: "IDR 1,000,000",
 	refNumber: "000085752257",

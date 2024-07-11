@@ -13,19 +13,21 @@ import { SiLinkedin, SiLinkerd } from "react-icons/si"
 
 const Home = () => {
 	const [selected, setSelected] = useState("All Properties")
+	const [properties, setProperties] = useState([])
 
 	useEffect(() => {
-		const fetchData = async () => {
+		const fetchAllProperties = async () => {
 			try {
-				const res = await fetch("https://realestateproject.azurewebsites.net/api/Properties")
+				const res = await fetch("https://realestateproject.azurewebsites.net/api/Property/GetAllProperty")
 				const data = await res.json()
 				console.log(data)
+				setProperties(data)
 			} catch (error) {
 				console.error("Error fetching data: ", error)
 			}
 		}
 
-		fetchData()
+		fetchAllProperties()
 	}, [])
 
 	const menuItems = ["All Properties", "Villa", "Apartments", "Office"]
@@ -143,17 +145,18 @@ const Home = () => {
 						</div>
 					</div>
 					<div className='grid grid-cols-3 gap-2'>
-						{properties.map((data, index) => (
+						{properties.map((data) => (
 							<Typical
+								projectID={data.projectID}
 								image={data.image}
-								address={data.address}
-								title={data.view}
+								typeName={data.typeName}
+								title={data.projectName}
 								beds={data.bedRoom}
 								baths={data.bathRoom}
 								size={data.sizeArea}
 								price={data.totalPrice}
 								status={data.status}
-								key={index}
+								key={data.propertyID}
 							/>
 						))}
 					</div>
