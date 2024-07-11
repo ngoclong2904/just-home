@@ -31,7 +31,7 @@ const App = () => {
 					<Route path='payment' element={<Payment />} />
 				</Route>
 				<Route element={<HeaderLayout />}>
-					<Route path='choose-product' element={<ChooseProduct />} />
+					<Route path='choose-product/:projectID' element={<ChooseProduct />} />
 				</Route>
 				<Route path='order' element={<Order />} />
 				<Route path='receipt-card' element={<ReceiptCard />} />

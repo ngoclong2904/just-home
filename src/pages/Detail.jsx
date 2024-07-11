@@ -12,11 +12,11 @@ import smallImage3 from "../assets/detail/chid3.jpg"
 import { formatCurrency } from "../utils/util"
 
 const defaultDetailData = {
-	title: "Peninsula Đà Nẵng",
-	address: "Phường Nại Hiên Đông, Quận Sơn Trà, Đà Nẵng.",
+	title: "",
+	address: "",
 	mainImage: mainImage,
 	smallImages: [smallImage1, smallImage2, smallImage3],
-	area: "7.172",
+	area: "",
 	depositPrice: 1000000,
 	menuItems: [
 		{ title: "Bán & Cho thuê", subtitle: "Bán & Cho thuê" },
@@ -30,7 +30,6 @@ const defaultDetailData = {
 
 const Detail = () => {
 	let { projectID } = useParams()
-	console.log("🚀 -> projectID:", projectID)
 
 	const [isModalVisible, setIsModalVisible] = useState(false)
 	const [detailData, setDetailData] = useState(defaultDetailData)
@@ -49,6 +48,7 @@ const Detail = () => {
 					title: data.projectName,
 					address: data.address,
 					area: data.campusArea,
+					depositPrice: data.depositPrice,
 				}))
 			} catch (error) {
 				console.error("Error fetching data: ", error)
@@ -64,7 +64,7 @@ const Detail = () => {
 
 	const handleOk = () => {
 		setIsModalVisible(false)
-		navigator("/order")
+		navigator(`/choose-product/${projectID}`)
 	}
 
 	const handleCancel = () => {
